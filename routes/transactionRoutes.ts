@@ -1,4 +1,5 @@
-import ErrorCodes = require("../errorMessages");
+// import ErrorCodes = require("../errorMessages");
+import { ErrorCodes } from "../errorMessages";
 import {
   TransactionId,
   Entry,
@@ -13,7 +14,7 @@ import {
 } from "../helpers/transactionRouteHelpers";
 import { Request, Response } from "express";
 
-import data = require("../test-data_072020.json");
+import data from "../test-data_072020.json";
 
 /**
  *
@@ -41,7 +42,7 @@ export const getTransactions = async (req: Request, res: Response) => {
 
     // Check if query returns any items.
     if (!items || !Array.isArray(items) || items.length <= 0) {
-      res.status(400).send(ErrorCodes.ErrorCodes.notFound);
+      res.status(400).send(ErrorCodes.notFound);
     }
 
     // Result should be flattened.

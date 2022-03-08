@@ -1,5 +1,4 @@
 import { getTransactions } from "./transactionRoutes";
-// import ErrorCodes = require("../errorMessages");
 import { ErrorCodes } from "../errorMessages";
 
 const mockRequest = (transactionId: any, confidenceLevel: any) => ({
