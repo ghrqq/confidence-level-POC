@@ -1,4 +1,5 @@
-const { getTransactions } = require("./transactionRoutes");
+//@ts-nocheck
+import { getTransactions } from "./transactionRoutes";
 import ErrorCodes = require("../errorMessages");
 
 const mockRequest = (transactionId: any, confidenceLevel: any) => ({
