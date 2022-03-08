@@ -1,11 +1,9 @@
 import express, { NextFunction } from "express";
-import dotenv from "dotenv";
+
 import { ErrorCodes } from "./errorMessages";
 
 import { getTransactions } from "./routes/transactionRoutes";
 import { Request, Response, Application } from "express";
-
-dotenv.config();
 
 const app: Application = express();
 app.use(express.json());
@@ -25,6 +23,8 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
   res.status(404).send(ErrorCodes.fourOFour);
 });
 
-const PORT = process.env.PORT || 4000;
-
-app.listen(process.env.PORT, () => `Server running on ${PORT}`);
+let port: number | string = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
