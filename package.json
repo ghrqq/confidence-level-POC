@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "A node.js server that serves an API endpoint for a fraud detection module.",
   "main": "dist/index.js",
+  "engines": {
+    "node": "12.22.3"
+  },
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node .",
-    "test": "jest"
+    "test": "jest",
+    "heroku-postbuild": "npm run start"
   },
   "author": "Theo Oz",
   "license": "ISC",
