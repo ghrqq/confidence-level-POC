@@ -1,4 +1,4 @@
-import { ErrorCodes } from "../errorMessages";
+import ErrorCodes = require("../errorMessages");
 import {
   TransactionId,
   Entry,
@@ -41,7 +41,7 @@ export const getTransactions = async (req: Request, res: Response) => {
 
     // Check if query returns any items.
     if (!items || !Array.isArray(items) || items.length <= 0) {
-      res.status(400).send(ErrorCodes.notFound);
+      res.status(400).send(ErrorCodes.ErrorCodes.notFound);
     }
 
     // Result should be flattened.
