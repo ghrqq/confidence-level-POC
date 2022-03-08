@@ -13,7 +13,7 @@ import {
 } from "../helpers/transactionRouteHelpers";
 import { Request, Response } from "express";
 
-const data = require("../test-data_072020.json");
+import data = require("../test-data_072020.json");
 
 /**
  *
