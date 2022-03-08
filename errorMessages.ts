@@ -1,5 +1,3 @@
-export interface ErrorCodesTypes {}
-
 export enum ErrorCodes {
   "invalidTransactionId" = "Transaction Id is invalid. Please check the provided Transaction Id.",
   "invalidConfidenceLevel" = "Confidence Level is invalid. Please check the provided Confidence Level. It should be a number between 0 - 1",
