@@ -24,7 +24,7 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
 });
 
 let port: number | string = process.env.PORT;
-if (port == null || port == "") {
+if (port === null || port === "" || !port) {
   port = 8000;
 }
 app.listen(port);
