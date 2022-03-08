@@ -1,4 +1,4 @@
-// import { ErrorCodes } from "../errorMessages";
+// @ts-nocheck
 import { ErrorCodes } from "../errorMessages";
 import {
   combinedConnectionInfoAdder,
