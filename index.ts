@@ -5,7 +5,9 @@ import { ErrorCodes } from "./errorMessages";
 import { getTransactions } from "./routes/transactionRoutes";
 import { Request, Response, Application } from "express";
 
-dotenv.config();
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
 const app: Application = express();
 app.use(express.json());
