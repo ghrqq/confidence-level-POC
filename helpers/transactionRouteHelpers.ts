@@ -1,9 +1,5 @@
 import { ErrorCodes } from "../errorMessages";
-import {
-  Entry,
-  EntryWithCombinedConnectionInfo,
-  TransactionId,
-} from "../dataTypes/GenericDataTypes";
+import { EntryWithCombinedConnectionInfo } from "../dataTypes/GenericDataTypes";
 
 /**
  * Flattens the given array of objects but does NOT remove flattened child elements.
