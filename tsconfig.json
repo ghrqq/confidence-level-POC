@@ -8,6 +8,9 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+
+    "resolveJsonModule": true,
+
     "baseUrl": ".",
     "paths": {
       "*": ["node_modules/*"]

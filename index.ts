@@ -25,6 +25,6 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
   res.status(404).send(ErrorCodes.fourOFour);
 });
 
-const PORT = process.env.PORT || 4000;
 
-app.listen(process.env.PORT, () => `Server running on ${PORT}`);
+app.listen(process.env.PORT);
+

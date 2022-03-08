@@ -1,4 +1,3 @@
-// @ts-nocheck
 
 import { getTransactions } from "./transactionRoutes";
 import { ErrorCodes } from "../errorMessages";
@@ -19,6 +18,7 @@ describe("Receives query parameters and validates those.", () => {
   test("Should send an error message if the transactionId is not valid.", async () => {
     const req = mockRequest("abc", 0.1);
     const res = mockResponse();
+    // @ts-ignore
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith([ErrorCodes.invalidTransactionId]);
@@ -26,6 +26,7 @@ describe("Receives query parameters and validates those.", () => {
   test("Should send an error message if the confidence level is not valid.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef44", 8);
     const res = mockResponse();
+    // @ts-ignore
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith([ErrorCodes.invalidConfidenceLevel]);
@@ -33,6 +34,7 @@ describe("Receives query parameters and validates those.", () => {
   test("Should send an error message if the confidence level and transaction Id are not valid.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef44a", 8);
     const res = mockResponse();
+    // @ts-ignore
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith([
@@ -45,6 +47,7 @@ describe("If request passes the validation makes the query.", () => {
   test("Should send an error message if no date returns from the query.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef43", 0.8);
     const res = mockResponse();
+    // @ts-ignore
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith(ErrorCodes.notFound);
@@ -52,6 +55,7 @@ describe("If request passes the validation makes the query.", () => {
   test("Successfuly returns flattened data.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef44", 0);
     const res = mockResponse();
+    // @ts-ignore
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith(exampleOutputs[0]);
@@ -59,6 +63,7 @@ describe("If request passes the validation makes the query.", () => {
   test("Successfuly filters by the confidence level.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef44", 0.5);
     const res = mockResponse();
+    // @ts-ignore
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith(exampleOutputs[1]);
