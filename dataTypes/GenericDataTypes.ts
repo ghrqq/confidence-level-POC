@@ -12,7 +12,7 @@ export interface Entry {
     latitude: number;
     longitude: number;
   };
-  children?: Array<Entry>;
+  children?: Entry[];
 }
 
 export interface EntryWithCombinedConnectionInfo extends Entry {

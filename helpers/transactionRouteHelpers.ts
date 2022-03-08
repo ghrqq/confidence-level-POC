@@ -66,10 +66,10 @@ export const fieldRemover = (arr: {}[], fields: string[]) => {
  * @returns
  */
 export const combinedConnectionInfoAdder = (
-  arr: Array<any | EntryWithCombinedConnectionInfo>
+  arr: (any | EntryWithCombinedConnectionInfo)[]
 ) => {
   for (let i = 0; i < arr.length - 1; i++) {
-    let combinedConnectionInfo: {
+    const combinedConnectionInfo: {
       types: string[];
       confidence: number;
     } = {
@@ -98,7 +98,7 @@ export const combinedConnectionInfoAdder = (
  */
 export const requestValidator =
   (isTransactionIdValid: boolean) => (confidenceLevel: number) => {
-    let combinedErrorCodes: {
+    const combinedErrorCodes: {
       errorsFound: number;
       errorMessages: string[];
     } = {
