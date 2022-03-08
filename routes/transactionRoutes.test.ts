@@ -1,6 +1,6 @@
-//@ts-nocheck
 import { getTransactions } from "./transactionRoutes";
-import ErrorCodes = require("../errorMessages");
+// import ErrorCodes = require("../errorMessages");
+import { ErrorCodes } from "../errorMessages";
 
 const mockRequest = (transactionId: any, confidenceLevel: any) => ({
   query: { transactionId, confidenceLevel },
@@ -20,18 +20,14 @@ describe("Receives query parameters and validates those.", () => {
     const res = mockResponse();
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith([
-      ErrorCodes.ErrorCodes.invalidTransactionId,
-    ]);
+    expect(res.send).toHaveBeenCalledWith([ErrorCodes.invalidTransactionId]);
   });
   test("Should send an error message if the confidence level is not valid.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef44", 8);
     const res = mockResponse();
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith([
-      ErrorCodes.ErrorCodes.invalidConfidenceLevel,
-    ]);
+    expect(res.send).toHaveBeenCalledWith([ErrorCodes.invalidConfidenceLevel]);
   });
   test("Should send an error message if the confidence level and transaction Id are not valid.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef44a", 8);
@@ -39,8 +35,8 @@ describe("Receives query parameters and validates those.", () => {
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith([
-      ErrorCodes.ErrorCodes.invalidTransactionId,
-      ErrorCodes.ErrorCodes.invalidConfidenceLevel,
+      ErrorCodes.invalidTransactionId,
+      ErrorCodes.invalidConfidenceLevel,
     ]);
   });
 });
@@ -50,7 +46,7 @@ describe("If request passes the validation makes the query.", () => {
     const res = mockResponse();
     await getTransactions(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith(ErrorCodes.ErrorCodes.notFound);
+    expect(res.send).toHaveBeenCalledWith(ErrorCodes.notFound);
   });
   test("Successfuly returns flattened data.", async () => {
     const req = mockRequest("5c868b9b89b9aadcd89bef44", 0);
