@@ -10,9 +10,11 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
+
     "start": "node .",
     "test": "jest",
     "heroku-postbuild": "npm run start"
+
   },
   "author": "Theo Oz",
   "license": "ISC",
