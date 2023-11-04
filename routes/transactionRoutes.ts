@@ -1,4 +1,3 @@
-// import ErrorCodes = require("../errorMessages");
 import { ErrorCodes } from "../errorMessages";
 import {
   TransactionId,

@@ -27,4 +27,4 @@ let port: number | string = process.env.PORT;
 if (port === null || port === "" || !port) {
   port = 8000;
 }
-app.listen(port);
+app.listen(port, () => console.log(`Listening on port ${port}`));

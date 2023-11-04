@@ -2,5 +2,5 @@
 
 1. Clone the repository,
 2. `yarn install`
-3. `node index.ts` or `nodemon index.ts`
+3. `npm run start`
 4. Enjoy
